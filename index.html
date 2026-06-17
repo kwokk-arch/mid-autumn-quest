@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Mid-Autumn Heritage Quest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="setup-screen" class="overlay-screen">
+        <div class="card wide-card">
+            <div class="logo-container">
+                <span class="brand-sea">sea</span>
+                <span class="brand-subtext">connecting the dots</span>
+            </div>
+            <h2>Mid-Autumn Heritage Quest</h2>
+            <p class="mission-text">Guided by our mission to better the lives of consumers and small businesses with technology, navigate the local heritage trail and reunite our community.</p>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="user-email">Corporate Email Address</label>
+                    <input type="email" id="user-email" required placeholder="username@sea.com" autocomplete="off">
+                </div>
+                <button type="submit" class="btn btn-primary">Start Quest</button>
+            </form>
+
+            <div class="leaderboard-container" style="margin-top: 40px;">
+                <h3 style="text-align:center; color:#fe5722; margin-bottom: 12px;">🏆 Global Live Leaderboard (Beat the #1 Spot!)</h3>
+                <div class="table-wrapper">
+                    <table id="global-leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Anonymized Player</th>
+                                <th>Best Run Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td colspan="3" style="text-align:center; color:#b0c4de;">Syncing with Google Sheets...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <div id="canvas-container"></div>
+        
+        <div id="hud">
+            <div class="hud-item">
+                <span class="label">Level</span>
+                <span id="hud-level" class="value">1/10</span>
+            </div>
+            <div class="hud-item">
+                <span class="label">Time</span>
+                <span id="hud-timer" class="value">00:00</span>
+            </div>
+        </div>
+
+        <div id="level-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3 id="modal-title" class="text-orange">Level Complete!</h3>
+                <p id="modal-text"></p>
+                <button id="modal-btn" class="btn btn-primary">Next Stage</button>
+            </div>
+        </div>
+    </div>
+
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+    <div id="end-screen" class="overlay-screen hidden">
+        <div class="card">
+            <h2 class="text-orange">Vault Unlocked!</h2>
+            <p>Your record run metrics have been pushed live to the master sheet.</p>
+            <div class="stats-summary" style="margin:25px 0;">
+                <p>Player: <span id="summary-email" class="highlight"></span></p>
+                <p>Total Duration: <span id="summary-time" class="highlight"></span></p>
+            </div>
+            <button id="btn-reset" class="btn btn-secondary" onclick="location.reload();">Return to Main Hub</button>
+        </div>
+    </div>
+
+    <script src="three.js"></script>
+    <script src="maze.js"></script>
+    <script src="player.js"></script>
+    <script src="ui.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
